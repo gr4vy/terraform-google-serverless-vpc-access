@@ -50,7 +50,7 @@ variable "max_throughput" {
 
   validation {
     condition     = var.max_throughput >= 200 && var.max_throughput <= 1000 && var.max_throughput % 100 == 0
-    error_message = "Maximum throughput of the connector must be greater that `min_throughput` and less than 1000 Mbps, in 100 Mbps increments."
+    error_message = "Maximum throughput of the connector must be between 200 Mbps and 1000 Mbps, in 100 Mbps increments."
   }
 }
 
