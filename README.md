@@ -5,7 +5,7 @@ Terraform module to configure Google Cloud Serverless VPC Access
 
 ```hcl
 module "serverless_vpc_access" {
-  source = "git::https://github.com/gr4vy/terraform-google-serverless-vpc-access.git?ref=tags/v1.0.0"
+  source = "git::https://github.com/gr4vy/terraform-google-serverless-vpc-access.git?ref=v1.0.0"
 
   name          = "serverless-access"
   network       = "default"
