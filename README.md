@@ -44,8 +44,8 @@ No Modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | ip\_cidr\_range | CIDR `/28` range of internal addresses (following RFC 4632 notation) for the connector to use. | `string` | `"10.8.0.0/28"` | no |
-| max\_throughput | Maximum throughput of the connector in 100 Mbps increments (Higest possible vaule is 1000). | `number` | `1000` | no |
-| min\_throughput | Minimum throughput of the connector in 100 Mbps increments (Lowest possible value is 200). | `number` | `200` | no |
+| max\_throughput | Maximum throughput of the connector in 100 Mbps increments. Must be greater that `min_throughput`. Higest possible vaule is 1000. | `number` | `1000` | no |
+| min\_throughput | Minimum throughput of the connector in 100 Mbps increments. Lowest possible value is 200. | `number` | `200` | no |
 | name | Name of the Serverless VPC Access Connector (Max 25 characters). | `string` | n/a | yes |
 | network | Name of the VPC to connect to. | `string` | `"default"` | no |
 | project\_id | The ID of the project in which to create the resources. If this is not provided, the provider project is used. | `string` | `""` | no |
