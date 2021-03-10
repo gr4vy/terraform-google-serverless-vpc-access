@@ -33,7 +33,7 @@ variable "ip_cidr_range" {
 }
 
 variable "min_throughput" {
-  description = "Minimum throughput of the connector in 100 Mbps increments (Lowest possible value is 200)."
+  description = "Minimum throughput of the connector in 100 Mbps increments. Lowest possible value is 200."
   type        = number
   default     = 200
 
@@ -44,13 +44,13 @@ variable "min_throughput" {
 }
 
 variable "max_throughput" {
-  description = "Maximum throughput of the connector in 100 Mbps increments (Higest possible vaule is 1000)."
+  description = "Maximum throughput of the connector in 100 Mbps increments. Must be greater that `min_throughput`. Higest possible vaule is 1000."
   type        = number
   default     = 1000
 
   validation {
     condition     = var.max_throughput >= 200 && var.max_throughput <= 1000 && var.max_throughput % 100 == 0
-    error_message = "Maximum throughput of the connector must be greater that `min_throughput` and less than 1000 Mbps, in 100 Mbps increments."
+    error_message = "Maximum throughput of the connector must be between 200 Mbps and 1000 Mbps, in 100 Mbps increments."
   }
 }
 
