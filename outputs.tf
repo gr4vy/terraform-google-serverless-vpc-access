@@ -13,12 +13,17 @@ output "ip_cidr_range" {
   value       = google_vpc_access_connector.this.ip_cidr_range
 }
 
-output "min_throughput" {
-  description = "Minimum throughput of the connector in Mbps."
-  value       = google_vpc_access_connector.this.min_throughput
+output "machine_type" {
+  description = "Machine type of VM Instance underlying connector."
+  value       = google_vpc_access_connector.this.machine_type
 }
 
-output "max_throughput" {
-  description = "Maximum throughput of the connector in Mbps."
-  value       = google_vpc_access_connector.this.max_throughput
+output "min_instances" {
+  description = "Minimum number of VM instances in autoscaling group underlying the connector."
+  value       = google_vpc_access_connector.this.min_instances
+}
+
+output "max_instances" {
+  description = "Maximum number of VM instances in autoscaling group underlying the connector."
+  value       = google_vpc_access_connector.this.max_instances
 }

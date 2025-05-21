@@ -19,13 +19,14 @@ resource "google_project_service" "servicenetworking" {
 }
 
 resource "google_vpc_access_connector" "this" {
-  project        = local.project_id
-  region         = local.region
-  name           = var.name
-  network        = var.network
-  ip_cidr_range  = var.ip_cidr_range
-  min_throughput = var.min_throughput
-  max_throughput = var.max_throughput
+  project       = local.project_id
+  region        = local.region
+  name          = var.name
+  network       = var.network
+  ip_cidr_range = var.ip_cidr_range
+  machine_type  = var.machine_type
+  min_instances = var.min_instances
+  max_instances = var.max_instances
 
   timeouts {
     create = lookup(var.timeouts, "create", null)
