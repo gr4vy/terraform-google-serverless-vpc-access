@@ -32,25 +32,31 @@ variable "ip_cidr_range" {
   default     = "10.8.0.0/28"
 }
 
-variable "min_throughput" {
-  description = "Minimum throughput of the connector in 100 Mbps increments. Lowest possible value is 200."
+variable "machine_type" {
+  description = "Machine type of VM Instance underlying connector."
+  type        = string
+  default     = "e2-micro"
+}
+
+variable "min_instances" {
+  description = "Minimum value of instances in autoscaling group underlying the connector. Value must be between 2 and 9, inclusive. Must be lower than the value specified by max_instances."
   type        = number
-  default     = 200
+  default     = "2"
 
   validation {
-    condition     = var.min_throughput >= 200 && var.min_throughput <= 1000 && var.min_throughput % 100 == 0
-    error_message = "Minimum throughput of the connector must be between 200 Mbps and 1000 Mbps, in 100 Mbps increments."
+    condition     = var.min_instances >= 2 && var.min_instances <= 9
+    error_message = "Value must be between 2 and 9, inclusive. Must be lower than the value specified by max_instances."
   }
 }
 
-variable "max_throughput" {
-  description = "Maximum throughput of the connector in 100 Mbps increments. Must be greater that `min_throughput`. Higest possible vaule is 1000."
+variable "max_instances" {
+  description = "Maximum value of instances in autoscaling group underlying the connector. Value must be between 3 and 10, inclusive. Must be higher than the value specified by min_instances."
   type        = number
-  default     = 1000
+  default     = "10"
 
   validation {
-    condition     = var.max_throughput >= 200 && var.max_throughput <= 1000 && var.max_throughput % 100 == 0
-    error_message = "Maximum throughput of the connector must be between 200 Mbps and 1000 Mbps, in 100 Mbps increments."
+    condition     = var.max_instances >= 3 && var.max_instances <= 10
+    error_message = "Value must be between 3 and 10, inclusive. Must be higher than the value specified by min_instances."
   }
 }
 
